@@ -1,0 +1,58 @@
+@use "./mixinsfunc";
+@import "./variables";
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: $BLACKY;
+    color: $BLANCO;
+}
+
+.navbar {
+    @include mixinsfunc.flexBox(space-between, 0);
+    padding: 1rem 3rem;
+    z-index: 1000;
+
+    .logo {
+        max-width: 70px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2px;
+
+        figure {
+            img {
+                @include mixinsfunc.img();
+            }
+        }
+
+        span {
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+    }
+
+    nav {
+        @include mixinsfunc.flexBox(center, 5rem);
+        text-transform: uppercase;
+        overflow: visible;
+
+        a {
+            color: $BLANCO;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s linear;
+
+            &:hover {
+                transform: translateY(-2px);
+                color: $ROSA;
+                border-bottom: solid 1px $ROSA;
+            }
+        }
+    }
+}
